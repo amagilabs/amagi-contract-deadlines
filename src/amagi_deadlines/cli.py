@@ -69,6 +69,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--remind", type=_remind, default=[30, 7], metavar="DAYS",
                    help="calendar reminders before each action date, e.g. 60,30,7 (default: 30,7; "
                         "'none' for no reminders)")
+    p.add_argument("--upcoming", action="store_true",
+                   help="leave out events dated before --as-of (or today)")
     p.add_argument("--no-ics", action="store_true", help="don't write the .ics file")
     p.add_argument("--no-csv", action="store_true", help="don't write the CSV file")
     p.add_argument("--json", action="store_true", help="print JSON and write nothing")
@@ -116,11 +118,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print("amagi-deadlines: none of the files could be read", file=sys.stderr)
         return 1
 
+    if args.upcoming:
+        for report in reports:
+            report.events = [ev for ev in report.events if ev.date is None or ev.date >= as_of]
+    events = all_events(reports)
     if args.json:
         print(to_json(reports))
         return 0
-
-    events = all_events(reports)
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
     written: List[Path] = []

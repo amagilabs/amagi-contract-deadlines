@@ -164,6 +164,7 @@ def to_json(reports: Sequence[Report]) -> str:
                 "auto_renews": r.auto_renews,
                 "renewal_term": str(r.renewal_term) if r.renewal_term else None,
                 "notes": r.notes,
+                "relative_notices": r.relative_notices,
                 "events": [ev_dict(ev) for ev in r.events],
             }
             for r in reports
@@ -193,6 +194,10 @@ def summary(reports: Sequence[Report], as_of: date) -> str:
             lines.append(f"  {when}  {ev.label:<{width}} {where}{flag}")
         for note in report.notes:
             lines.append(f"  note: {note}")
+        if report.relative_notices:
+            n = len(report.relative_notices)
+            lines.append(f"  note: {n} notice period{'s' if n != 1 else ''} measured from events with "
+                         "no fixed date (assignment, default, etc.); see --json")
     upcoming = [ev for ev in all_events(reports)
                 if ev.is_action and ev.date and ev.date >= as_of]
     if upcoming:
