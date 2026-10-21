@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amagi-deadlines"
+version = "0.1.0"
+description = "Point it at a folder of contracts and leases. Get every renewal, notice-window, expiry and option date, with the clause it came from, as an .ics calendar and a CSV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "AmagiLabs (Amagisolutionsgroup, Inc.)", email = "dev@amagisolutionsgroup.com" }]
+keywords = ["contracts", "leases", "auto-renewal", "deadlines", "ics", "calendar", "notice", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: Legal Industry",
+    "Topic :: Office/Business",
+    "Topic :: Office/Business :: Scheduling",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "pypdf>=3.9",
+    "python-docx>=0.8.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/amagilabs/amagi-deadlines"
+
+[project.scripts]
+amagi-deadlines = "amagi_deadlines.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
