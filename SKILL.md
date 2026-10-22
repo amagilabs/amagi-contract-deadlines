@@ -26,8 +26,7 @@ rule applied to a date found elsewhere ("ninety (90) days prior to the expiratio
 
 ## How to use it
 
-1. Check it is installed: `amagi-contract-deadlines --version`. If not: `pipx install amagi-contract-deadlines`
-   (or `pipx install git+https://github.com/amagilabs/amagi-contract-deadlines` until it is on PyPI).
+1. Check it is installed: `amagi-contract-deadlines --version`. If not: `pipx install amagi-contract-deadlines`.
 2. Run it on files or folders (folders are searched recursively):
    - `amagi-contract-deadlines contracts/ -o out` writes `out/deadlines.ics` and `out/deadlines.csv`
      and prints a summary per document.
