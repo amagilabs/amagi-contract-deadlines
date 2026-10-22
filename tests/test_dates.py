@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from amagi_deadlines.dates import (
+from amagi_contract_deadlines.dates import (
     Duration, add_business_days, add_months, find_dates, find_durations, parse_date,
     shift, words_to_int,
 )

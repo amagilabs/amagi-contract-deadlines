@@ -4,8 +4,8 @@ import shutil
 
 import pytest
 
-from amagi_deadlines import __version__
-from amagi_deadlines.cli import main
+from amagi_contract_deadlines import __version__
+from amagi_contract_deadlines.cli import main
 
 AS_OF = ["--as-of", "2026-10-21"]
 
@@ -32,7 +32,7 @@ def test_json_writes_nothing(examples, tmp_path, capsys):
     path = str(examples / "equipment_lease.txt")
     assert main([path, "-o", str(tmp_path), "--json", *AS_OF]) == 0
     data = json.loads(capsys.readouterr().out)
-    assert data["tool"] == "amagi-deadlines" and data["version"] == __version__
+    assert data["tool"] == "amagi-contract-deadlines" and data["version"] == __version__
     events = {e["event"]: e["date"] for e in data["documents"][0]["events"]}
     assert events["Option exercise deadline"] == "2027-10-02"
     assert list(tmp_path.iterdir()) == []

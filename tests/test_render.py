@@ -3,8 +3,8 @@ import io
 import re
 from datetime import date, datetime, timezone
 
-from amagi_deadlines.detect import DEADLINE, EXPIRATION, Event, Report
-from amagi_deadlines.render import CSV_COLUMNS, _fold, summary, to_csv, to_ics
+from amagi_contract_deadlines.detect import DEADLINE, EXPIRATION, Event, Report
+from amagi_contract_deadlines.render import CSV_COLUMNS, _fold, summary, to_csv, to_ics
 
 NOW = datetime(2026, 10, 21, 12, 0, tzinfo=timezone.utc)
 

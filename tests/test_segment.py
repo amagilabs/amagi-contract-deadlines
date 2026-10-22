@@ -1,5 +1,5 @@
-from amagi_deadlines.extract import load
-from amagi_deadlines.segment import clauses, split_sentences
+from amagi_contract_deadlines.extract import load
+from amagi_contract_deadlines.segment import clauses, split_sentences
 
 
 def test_sentences_respect_abbreviations():

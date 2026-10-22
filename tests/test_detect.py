@@ -2,8 +2,8 @@ from datetime import date
 
 from conftest import AS_OF, dated
 
-from amagi_deadlines.detect import NOTICE, OPTION, RENEWAL, WINDOW_OPENS, analyze, is_auto_renewal
-from amagi_deadlines.extract import load
+from amagi_contract_deadlines.detect import NOTICE, OPTION, RENEWAL, WINDOW_OPENS, analyze, is_auto_renewal
+from amagi_contract_deadlines.extract import load
 
 
 def report_for(examples, name):

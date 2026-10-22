@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "amagi-deadlines"
+name = "amagi-contract-deadlines"
 version = "0.1.0"
 description = "Point it at a folder of contracts and leases. Get every renewal, notice-window, expiry and option date, with the clause it came from, as an .ics calendar and a CSV."
 readme = "README.md"
@@ -32,10 +32,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/amagilabs/amagi-deadlines"
+Homepage = "https://github.com/amagilabs/amagi-contract-deadlines"
 
 [project.scripts]
-amagi-deadlines = "amagi_deadlines.cli:main"
+amagi-contract-deadlines = "amagi_contract_deadlines.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

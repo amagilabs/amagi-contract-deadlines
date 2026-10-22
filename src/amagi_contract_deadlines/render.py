@@ -18,7 +18,7 @@ CSV_COLUMNS = [
 ]
 
 DISCLAIMER = (
-    "Found by amagi-deadlines from the contract text. Check it against the signed "
+    "Found by amagi-contract-deadlines from the contract text. Check it against the signed "
     "document before you rely on it. This is not legal advice."
 )
 
@@ -77,7 +77,7 @@ def _fold(line: str) -> str:
 
 def _uid(ev: Event) -> str:
     key = "|".join([ev.path or ev.document, ev.kind, ev.label, ev.date.isoformat(), ev.section])
-    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:20] + "@amagi-deadlines"
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:20] + "@amagi-contract-deadlines"
 
 
 def describe(ev: Event) -> str:
@@ -102,7 +102,7 @@ def to_ics(events: Sequence[Event], remind_days: Sequence[int] = (30, 7),
     out = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        f"PRODID:-//AmagiLabs//amagi-deadlines {__version__}//EN",
+        f"PRODID:-//AmagiLabs//amagi-contract-deadlines {__version__}//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
         "X-WR-CALNAME:Contract deadlines",
@@ -155,7 +155,7 @@ def to_json(reports: Sequence[Report]) -> str:
         }
 
     return json.dumps({
-        "tool": "amagi-deadlines",
+        "tool": "amagi-contract-deadlines",
         "version": __version__,
         "documents": [
             {

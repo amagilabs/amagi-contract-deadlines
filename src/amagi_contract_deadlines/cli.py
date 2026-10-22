@@ -1,4 +1,4 @@
-"""amagi-deadlines command line."""
+"""amagi-contract-deadlines command line."""
 
 from __future__ import annotations
 
@@ -52,7 +52,7 @@ def _remind(value: str) -> List[int]:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="amagi-deadlines",
+        prog="amagi-contract-deadlines",
         description=(
             "Pull renewal, notice-window, expiry and option dates out of contracts and "
             "leases (PDF, DOCX or TXT), with the clause each one came from. Writes an "
@@ -77,7 +77,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-recursive", action="store_true",
                    help="only read files directly inside the folders given")
     p.add_argument("-q", "--quiet", action="store_true", help="print only the file names written")
-    p.add_argument("--version", action="version", version=f"amagi-deadlines {__version__}")
+    p.add_argument("--version", action="version", version=f"amagi-contract-deadlines {__version__}")
     return p
 
 
@@ -96,7 +96,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     files = _collect(args.paths, not args.no_recursive)
     if not files:
-        print("amagi-deadlines: no .pdf, .docx or .txt files found", file=sys.stderr)
+        print("amagi-contract-deadlines: no .pdf, .docx or .txt files found", file=sys.stderr)
         return 1
 
     reports: List[Report] = []
@@ -115,7 +115,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         reports.append(analyze(doc, as_of=as_of))
 
     if not reports:
-        print("amagi-deadlines: none of the files could be read", file=sys.stderr)
+        print("amagi-contract-deadlines: none of the files could be read", file=sys.stderr)
         return 1
 
     if args.upcoming:

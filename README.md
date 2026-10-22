@@ -1,6 +1,6 @@
-# amagi-deadlines
+# amagi-contract-deadlines
 
-Put every lease option and cancel-by date on your calendar. Point amagi-deadlines at a folder of
+Put every lease option and cancel-by date on your calendar. Point amagi-contract-deadlines at a folder of
 contracts and leases (PDF, DOCX or TXT). It finds every renewal, notice-window, expiry and
 option date, tells you which clause each one came from, and writes an `.ics` file you can drop
 into Google Calendar, Outlook or Apple Calendar, plus a CSV for your spreadsheet. It runs on
@@ -15,7 +15,7 @@ platform to get a reminder.
 ## Install
 
 ```
-pipx install amagi-deadlines
+pipx install amagi-contract-deadlines
 ```
 
 Not on PyPI yet. Until it is, install from a clone of this repo:
@@ -33,7 +33,7 @@ office lease (PDF), a software subscription that auto-renews (DOCX) and an equip
 (TXT).
 
 ```
-$ amagi-deadlines . --as-of 2026-10-21 -o out
+$ amagi-contract-deadlines . --as-of 2026-10-21 -o out
 equipment_lease.txt (1 page)
   2024-12-05  Effective date                           p.1
   2025-01-01  Term starts                              §2 p.1
@@ -103,18 +103,18 @@ show up there with a blank date, so nothing silently drops out.
 ### Options
 
 ```
-amagi-deadlines FOLDER              read every .pdf, .docx and .txt in FOLDER and its subfolders
-amagi-deadlines a.pdf b.docx        read just these files
-amagi-deadlines FOLDER -o out/      write out/deadlines.ics and out/deadlines.csv
-amagi-deadlines FOLDER --name leases       name them leases.ics and leases.csv
-amagi-deadlines FOLDER --as-of 2026-10-21  treat that date as today
-amagi-deadlines FOLDER --upcoming          leave out dates that have already passed
-amagi-deadlines FOLDER --remind 60,30,7    reminders 60, 30 and 7 days ahead
-amagi-deadlines FOLDER --remind none       no reminders
-amagi-deadlines FOLDER --no-ics            CSV only
-amagi-deadlines FOLDER --no-csv            calendar only
-amagi-deadlines FOLDER --json              print JSON, write nothing
-amagi-deadlines FOLDER --no-recursive      skip subfolders
+amagi-contract-deadlines FOLDER                     read every .pdf, .docx and .txt in FOLDER and its subfolders
+amagi-contract-deadlines a.pdf b.docx               read just these files
+amagi-contract-deadlines FOLDER -o out/             write out/deadlines.ics and out/deadlines.csv
+amagi-contract-deadlines FOLDER --name leases       name them leases.ics and leases.csv
+amagi-contract-deadlines FOLDER --as-of 2026-10-21  treat that date as today
+amagi-contract-deadlines FOLDER --upcoming          leave out dates that have already passed
+amagi-contract-deadlines FOLDER --remind 60,30,7    reminders 60, 30 and 7 days ahead
+amagi-contract-deadlines FOLDER --remind none       no reminders
+amagi-contract-deadlines FOLDER --no-ics            CSV only
+amagi-contract-deadlines FOLDER --no-csv            calendar only
+amagi-contract-deadlines FOLDER --json              print JSON, write nothing
+amagi-contract-deadlines FOLDER --no-recursive      skip subfolders
 ```
 
 The exit code is 0 on success (files it couldn't read are listed and skipped), 1 if there were
@@ -140,7 +140,7 @@ no contracts to read or none could be read, and 2 for a bad option.
 
 ## Limits
 
-amagi-deadlines reads the words of the contract. It gives you a strong first draft of your
+amagi-contract-deadlines reads the words of the contract. It gives you a strong first draft of your
 deadline calendar, not legal advice, so check each date against the signed document before you
 rely on it.
 
@@ -161,8 +161,8 @@ rely on it.
 
 ## Use it from Claude Code
 
-The repo ships a [SKILL.md](SKILL.md). Copy it to `~/.claude/skills/amagi-deadlines/SKILL.md`
-and Claude Code will run amagi-deadlines when you ask when a lease expires, which contracts
+The repo ships a [SKILL.md](SKILL.md). Copy it to `~/.claude/skills/amagi-contract-deadlines/SKILL.md`
+and Claude Code will run amagi-contract-deadlines when you ask when a lease expires, which contracts
 auto-renew, or to put your contract deadlines on a calendar.
 
 It pairs with [legal-review-skills](https://github.com/amagilabs/legal-review-skills): those
@@ -170,7 +170,7 @@ skills review what a contract says, and this tool puts its dates on your calenda
 
 ## Star it if it saved you a renewal
 
-If amagi-deadlines caught a cancel-by date you would have missed, a star helps other small
+If amagi-contract-deadlines caught a cancel-by date you would have missed, a star helps other small
 shops find it. Bug reports with a public contract that trips it up are the most useful thing
 you can send.
 

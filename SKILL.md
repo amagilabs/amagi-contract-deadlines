@@ -1,9 +1,9 @@
 ---
-name: amagi-deadlines
-description: Pull renewal, notice-window, expiry and option dates out of a folder of contracts and leases (PDF, DOCX or TXT) with the local amagi-deadlines CLI. Every date comes with the section, page and clause it came from, and computed dates show the arithmetic. Writes an .ics calendar with reminders and a CSV. Use when asked when a contract or lease expires, when non-renewal notice is due, when an option to extend or purchase must be exercised, whether something auto-renews, or to put contract deadlines on a calendar. Runs offline, no API key.
+name: amagi-contract-deadlines
+description: Pull renewal, notice-window, expiry and option dates out of a folder of contracts and leases (PDF, DOCX or TXT) with the local amagi-contract-deadlines CLI. Every date comes with the section, page and clause it came from, and computed dates show the arithmetic. Writes an .ics calendar with reminders and a CSV. Use when asked when a contract or lease expires, when non-renewal notice is due, when an option to extend or purchase must be exercised, whether something auto-renews, or to put contract deadlines on a calendar. Runs offline, no API key.
 ---
 
-# amagi-deadlines
+# amagi-contract-deadlines
 
 A CLI that reads contracts and leases and writes their deadlines to a calendar:
 
@@ -26,12 +26,12 @@ rule applied to a date found elsewhere ("ninety (90) days prior to the expiratio
 
 ## How to use it
 
-1. Check it is installed: `amagi-deadlines --version`. If not: `pipx install amagi-deadlines`
+1. Check it is installed: `amagi-contract-deadlines --version`. If not: `pipx install amagi-contract-deadlines`
    (or `pipx install .` from a clone of the repo).
 2. Run it on files or folders (folders are searched recursively):
-   - `amagi-deadlines contracts/ -o out` writes `out/deadlines.ics` and `out/deadlines.csv`
+   - `amagi-contract-deadlines contracts/ -o out` writes `out/deadlines.ics` and `out/deadlines.csv`
      and prints a summary per document.
-   - `amagi-deadlines lease.pdf --json` prints everything as JSON and writes nothing. Use it when
+   - `amagi-contract-deadlines lease.pdf --json` prints everything as JSON and writes nothing. Use it when
      you need to reason over the events yourself.
    - `--as-of 2026-10-21` treats that date as today. Auto-renewing contracts are rolled forward
      to the next notice date still ahead of it.

@@ -5,8 +5,8 @@ import pytest
 
 from minipdf import write_pdf
 
-from amagi_deadlines.detect import analyze
-from amagi_deadlines.extract import load
+from amagi_contract_deadlines.detect import analyze
+from amagi_contract_deadlines.extract import load
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
 AS_OF = date(2026, 10, 21)
