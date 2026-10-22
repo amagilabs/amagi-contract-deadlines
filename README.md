@@ -165,7 +165,7 @@ The repo ships a [SKILL.md](SKILL.md). Copy it to `~/.claude/skills/amagi-contra
 and Claude Code will run amagi-contract-deadlines when you ask when a lease expires, which contracts
 auto-renew, or to put your contract deadlines on a calendar.
 
-It pairs with [legal-review-skills](https://github.com/amagilabs/legal-review-skills): those
+It pairs with [amagi-legal-review-skills](https://github.com/amagilabs/amagi-legal-review-skills): those
 skills review what a contract says, and this tool puts its dates on your calendar.
 
 ## Star it if it saved you a renewal
@@ -180,7 +180,7 @@ you can send.
   tools from AmagiLabs (Amagisolutionsgroup, Inc.).
 - [amagi-watch](https://github.com/amagilabs/amagi-watch): turns a video URL into something
   Claude can read (transcript, key frames and a timestamped index).
-- [legal-review-skills](https://github.com/amagilabs/legal-review-skills): Claude Code skills
+- [amagi-legal-review-skills](https://github.com/amagilabs/amagi-legal-review-skills): Claude Code skills
   for contract and lease review.
 
 ## Development
