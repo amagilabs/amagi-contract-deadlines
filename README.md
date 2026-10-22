@@ -18,10 +18,10 @@ platform to get a reminder.
 pipx install amagi-contract-deadlines
 ```
 
-Not on PyPI yet. Until it is, install from a clone of this repo:
+Not on PyPI yet. Until it is, install straight from GitHub:
 
 ```
-pipx install .
+pipx install git+https://github.com/amagilabs/amagi-contract-deadlines
 ```
 
 Python 3.9 or newer.
