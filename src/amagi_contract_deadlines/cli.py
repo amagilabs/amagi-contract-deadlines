@@ -135,7 +135,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if not args.no_csv:
         path = out_dir / f"{args.name}.csv"
         # utf-8-sig so Excel opens accented names and section signs correctly
-        path.write_text(to_csv(events), encoding="utf-8-sig", newline="")
+        # (open() rather than Path.write_text: its newline= argument needs Python 3.10)
+        with open(path, "w", encoding="utf-8-sig", newline="") as fh:
+            fh.write(to_csv(events))
         written.append(path)
 
     if not args.quiet:

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "amagi-contract-deadlines"
-version = "0.1.0"
+version = "0.1.1"
 description = "Point it at a folder of contracts and leases. Get every renewal, notice-window, expiry and option date, with the clause it came from, as an .ics calendar and a CSV."
 readme = "README.md"
 requires-python = ">=3.9"
